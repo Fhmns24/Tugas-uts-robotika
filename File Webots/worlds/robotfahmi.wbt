@@ -1,0 +1,88 @@
+#VRML_SIM R2023a utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/floors/protos/RectangleArena.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/robots/gctronic/e-puck/protos/E-puck.proto"
+
+WorldInfo {
+}
+Viewpoint {
+  orientation -0.15899380270076208 -0.0948264004414443 0.9827150779763532 4.20189283969483
+  position -0.05530491195610122 0.589883880865839 0.3797185785346351
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+RectangleArena {
+  floorSize 5 5
+  floorAppearance PBRAppearance {
+    roughness 1
+    roughnessMap ImageTexture {
+      url [
+        "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/appearances/protos/textures/parquetry/chequered_parquetry_roughness.jpg"
+      ]
+    }
+    metalness 0
+    normalMap ImageTexture {
+      url [
+        "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/appearances/protos/textures/parquetry/chequered_parquetry_normal.jpg"
+      ]
+    }
+    occlusionMap ImageTexture {
+      url [
+        "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/appearances/protos/textures/parquetry/chequered_parquetry_occlusion.jpg"
+      ]
+    }
+  }
+}
+Solid {
+  translation -0.15 -0.2 0.009
+  rotation -1 0 0 1.5708
+  scale 0.009 0.009 0.009
+  children [
+    DEF line Shape {
+      appearance PBRAppearance {
+        baseColor 0 0 0
+        roughness 1
+        metalness 0
+      }
+      geometry Mesh {
+        url [
+          "Big Track V2/Big Track V2.obj"
+        ]
+      }
+    }
+  ]
+  boundingObject USE line
+}
+E-puck {
+  hidden position_0_0 946.8636300429757
+  hidden position_0_1 939.6528971438381
+  hidden linearVelocity_0 -3.8881998684263306e-09 2.4803448334884046e-09 -2.652692880171041e-15
+  hidden angularVelocity_0 8.076284720377115e-08 1.2660370606259116e-07 8.338624014768304e-08
+  hidden rotation_1 0 0.9999999999999999 0 4.385833966037756
+  hidden linearVelocity_1 -1.394162193824432e-09 8.89357641673341e-10 -1.927627933946543e-15
+  hidden angularVelocity_1 -4.392976651593184e-08 -6.886468187323748e-08 8.338623706926492e-08
+  hidden rotation_2 0 -0.9999999999999999 0 2.824898933099854
+  hidden linearVelocity_2 -5.11639981671414e-09 3.263830667523685e-09 4.72979883137159e-16
+  hidden angularVelocity_2 -1.6373240445558655e-07 -2.5666837967960866e-07 8.338624340172705e-08
+  translation -0.49980832086250077 0.024541019506783005 -6.396199578791693e-05
+  rotation 1.1506501885798752e-09 -1.1782267602899744e-09 1 2.5737589942168033
+  controller "my_controller_line"
+  groundSensorsSlot [
+    DistanceSensor {
+      translation 0 -0.02 0
+      rotation 0 -1 0 -5.307179586466759e-06
+      name "right_sensor"
+      type "infra-red"
+    }
+    DistanceSensor {
+      translation 0 0.02 0
+      rotation 0 -1 0 -5.307179586466759e-06
+      name "left_sensor"
+      type "infra-red"
+    }
+  ]
+}
